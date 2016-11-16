@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "https://www.joomla.org/xml/dtd/1.6/template-install.dtd">
+<extension version="3.1" type="template" client="site">
+	<name>Bau</name>
+	<creationDate>08.11.2016</creationDate>
+	<author></author>
+	<authorEmail></authorEmail>
+	<authorUrl>http://sofona.com</authorUrl>
+	<copyright></copyright>
+	<license></license>
+	<version>1.0</version>
+	<description>Bau</description>
+
+	<files>
+		<folder>css</folder>
+		<folder>html</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+		<folder>font-awesome</folder>
+		<folder>fonts</folder>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+		<filename>favicon.ico</filename>
+		<filename>component.php</filename>
+		<filename>error.php</filename>
+	</files>
+
+	<positions>
+		<position>debug</position>
+		<position>banner</position>
+		<position>mainnav</position>
+		<position>topleft</position>
+		<position>topright</position>
+		<position>slider</position>
+		<position>beforecontent</position>
+		<position>bread</position>
+		<position>left</position>
+		<position>leftcont</position>
+		<position>aftercontent</position>
+		<position>about-font</position>
+		<position>footer</position>
+		<position>footer1</position>
+		<position>footer2</position>
+		<position>footer3</position>
+		<position>footer4</position>
+		<position>socicon</position>
+		<position>bottomnav</position>
+		<position>google-map</position>
+		<position>price-form</position>
+		<position>accordion</position>
+		<position>thee-block</position>
+	</positions>
+
+	
+</extension>
