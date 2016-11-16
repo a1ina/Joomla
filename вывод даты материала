@@ -1,0 +1,9 @@
+<div class="date-for-blog"><?php echo JHtml::_('date', $item->created, JText::_('DATE_FORMAT_LC3')); ?></div>
+ <div class="date-y">
+        <p class="date-d"><?php $time = date('d'); echo $time; ?></p>
+        <?php $time = date('m'); echo $time; ?><span>.</span>
+        <?php $time = date('Y'); echo $time; ?>
+    </div>
+
+
+http://notebook-net.ru/index.php/optimizacia-joomla-menu/43-kak-izmenit-format-date.html
