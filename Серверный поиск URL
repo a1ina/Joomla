@@ -1,0 +1,8 @@
+<div class="cat-children">
+       
+        <a class="<?php if ($_SERVER['REQUEST_URI']==="/stati") : ?>curent<?php endif; ?>" href="/stati">Все</a>
+        <a class="<?php if ($_SERVER['REQUEST_URI']==="/stati-o-promyshlennykh-polakh") : ?>curent<?php endif; ?>" href="/stati-o-promyshlennykh-polakh">Статьи о промышленных полах</a>
+        <a class="<?php if ($_SERVER['REQUEST_URI']==="/stati-o-blagoustrojstve") : ?>curent<?php endif; ?>" href="/stati-o-blagoustrojstve">Статьи о благоустройстве</a>
+        <a class="<?php if ($_SERVER['REQUEST_URI']==="/stati-ob-izolyatsii") : ?>curent<?php endif; ?>" href="/stati-ob-izolyatsii">Статьи об изоляции</a> 
+        
+    </div>
