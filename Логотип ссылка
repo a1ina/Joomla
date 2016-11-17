@@ -1,0 +1,3 @@
+<a href="<?php echo $mosConfig_live_site;?>" title="<?php echo $mosConfig_sitename; ?>">
+      <img alt="<?php echo $mosConfig_sitename; ?>" src="<?php echo $mosConfig_live_site;?>/templates/bau/images/logo.png" />
+</a>
