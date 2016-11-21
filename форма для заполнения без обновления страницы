@@ -1,0 +1,54 @@
+<script>
+document.getElementById('feedback-form').addEventListener('submit', function(evt){
+  var http = new XMLHttpRequest(), f = this;
+  evt.preventDefault();
+  http.open("POST", "contacts.php", true);
+  http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  http.send("nameFF=" + f.nameFF.value + "&contactFF=" + f.contactFF.value + "&messageFF=" + f.messageFF.value);
+  http.onreadystatechange = function() {
+    if (http.readyState == 4 && http.status == 200) {
+      alert(http.responseText + ', Ваше сообщение получено.\nНаши специалисты ответят Вам в течении 2-х дней.\nБлагодарим за интерес к нашей фирме!');    
+      f.messageFF.removeAttribute('value'); // очистить поле сообщения (две строки)
+      f.messageFF.value='';
+    }
+  }
+  http.onerror = function() {
+    alert('Извините, данные не были переданы');
+  }
+}, false);
+</script>
+
+
+
+ <form method="POST" id="feedback-form">
+                <p class="text-email">
+                    <input type="text" name="nameFF" required placeholder="Имя *" x-autocompletetype="name">
+                </p>
+                <p class="text-email">
+                 <input type="email" name="contactFF" required placeholder="Email *" x-autocompletetype="email">
+                </p>
+                <p class="textarea-mes">
+                    <input type="textarea" placeholder="Сообщение *" name="messageFF">
+                </p>
+                <p class="submit-button">
+                   <input type="submit" value="отправить">
+                </p>
+        </form>
+        
+        
+        
+        Файл contacts.php
+
+<?
+if (array_key_exists('messageFF', $_POST)) {
+   $to = 'свой@yandex.ru';
+   $subject = 'Заполнена контактная форма с '.$_SERVER['HTTP_REFERER'];
+   $subject = "=?utf-8?b?". base64_encode($subject) ."?=";
+   $message = "Имя: ".$_POST['nameFF']."\nEmail: ".$_POST['contactFF']."\nIP: ".$_SERVER['REMOTE_ADDR']."\nСообщение: ".$_POST['messageFF'];
+   $headers = 'Content-type: text/plain; charset="utf-8"';
+   $headers .= "MIME-Version: 1.0\r\n";
+   $headers .= "Date: ". date('D, d M Y h:i:s O') ."\r\n";
+   mail($to, $subject, $message, $headers);
+   echo $_POST['nameFF'];
+}
+?>
