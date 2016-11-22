@@ -1,3 +1,6 @@
+исходник на http://shpargalkablog.ru/2014/01/feedback-form.html
+
+
 <script>
 document.getElementById('feedback-form').addEventListener('submit', function(evt){
   var http = new XMLHttpRequest(), f = this;
