@@ -1,0 +1,163 @@
+form.php
+
+<?
+
+//E-mails
+
+//$emails = array('htyhu@yandex.ru','mail@plazma-stanok.ru','1@sofona.com');
+
+$emails = array('alina.ma1ina@mail.ru');
+
+//Var Width
+
+
+
+$title = trim($_POST["title"]);
+
+
+
+$name = trim($_POST["name"]);
+
+$phone = trim($_POST["phone"]);
+
+$email = trim($_POST["email"]);
+$usercity = trim($_POST["usercity"]);
+$referrer = $_POST['referrer'];
+$mess = $_POST['mess'];
+$filial = $_POST['filial'];
+
+
+
+if ($_POST['name'] != '' && $_POST['phone'] != '' && $_POST['email'] != '') {
+
+
+
+	$message.="<b>Имя:</b> $name<br />";
+	$message.="<b>Телефон:</b> $phone<br />";
+	$message.="<b>E-mail:</b> $email<br />";
+	$message.="<b>Город юзера:</b> $usercity<br />";
+	$message.="<b>Текст сообщения:</b> $mess<br />";
+	$message.="<b>Филиал:</b> $filial<br />";
+	$message.="<strong>Страница отправки:</strong> $referrer<br />";
+
+	if(isset($_POST['max_tolshina'])) {$message.="<b>Максимальная толщина разрезаемого металла, мм:</b> ".$_POST['max_tolshina']."<br />";}
+
+	if(isset($_POST['vid_metala'])) {$message.="<b>Вид разрезаемого металла:</b> ".$_POST['vid_metala']."<br />";}
+
+	if(isset($_POST['max_razmer'])) {$message.="<b>Максимальный размер обрабатываемого листа, м:</b> ".$_POST['max_razmer']."<br />";}
+
+	if(isset($_POST['kol_vo_work'])) {$message.="<b>Количество часов работы станка в 8 часовую смену:</b> ".$_POST['kol_vo_work']."<br />";}
+
+	if(isset($_POST['work_table'])) {$message.="<b>Рабочий стол для поддержки заготовок с системой дымоудаления:</b> ".$_POST['work_table']."<br />";}
+
+	if(isset($_POST['dostavka'])) {$message.="<b>В течении какого времени Вам необходимо получить станок:</b> ".$_POST['dostavka']."<br />";}
+
+
+
+	//Цикл
+
+	for ($i = 0; $i < count($emails); $i++) {
+
+		$mail = $emails[$i];
+
+
+
+		$headers="MIME-Version: 1.0\r\n";
+
+		$headers.="Content-type: text/html; charset=utf-8\r\n";
+
+		$headers.="From: www.plazma-stanok.ru\r\n";
+
+		mail($mail, $title, $message, $headers);
+
+	}
+
+	echo 0;
+
+}
+
+else {
+
+	echo 1;
+
+}
+/////////////////////////////************************************************/////////////////////////////////////
+main.js
+$('form.form_3').submit(function(event) {
+
+    	event.preventDefault();
+
+    	var output = true,
+
+    	array = $(this).serialize();
+
+    	$('input.required', this).addClass('err');
+
+    	var name = this.name,
+
+    	phone = this.phone,
+
+    	email = this.email,
+    	
+    	mess = this.mess;
+	
+	filial = this.filial;
+
+
+    	$.trim(name.value).length >= 1 ? $(name).removeClass('err') : output = false;
+
+    	$.trim(phone.value).length >= 1 ? $(phone).removeClass('err') : output = false;
+
+    	(/@/.test(email.value)) ? $(email).removeClass('err') : output = false;
+
+
+
+    	if (output) {
+
+    		$.post('/php/form_3.php', array, function(data) {
+
+    			if (data == 0) {
+
+    				$('input[type="text"], textarea').val('');
+
+    				$(".wrap-modal div").hide();
+
+    				$(".wrap-modal").fadeIn(100);
+
+    				$("#result").fadeIn(200);
+
+    			} else {
+
+    				alert('Ошибка функции mail !')
+
+    			}
+
+    		})
+
+    	};
+
+    })
+    
+    
+    /////////////////////////////////**********************************//////////////////////////////////
+    html
+    
+    <div class="call_back" id="podrobno">
+				
+				<form class="form_3" method="post" onsubmit="yaCounter28022985.reachGoal('info-product'); return true;">
+				<h4>Мы отправим Вам подробное предложение по данному станку и свяжемся для уточнения задач</h4>
+					<input type="hidden" name="title" value="Заказ подробного предложения по станкам | plazma-stanok.ru" />
+					<input type="text" name="name" class="required" placeholder="Имя" />
+					<input type="text" name="phone" class="required" placeholder="Телефон" />
+					<input type="text" name="email" class="required" placeholder="E-mail" />
+					<input class="usercity" type="hidden" name="usercity" value="" />
+					<input type="hidden" name="referrer" value="<?php echo getUrl(); ?>" />
+					<button type="submit">Отправить</button>
+					<p>Ваши контактные данные в безопасности и не будут переданы третьим лицам</p>
+				</form>
+				<a class="close" href="#"><img src="<? bloginfo("template_url"); ?>/images/x.png" alt="" /></a>
+			</div>
+
+
+
+
