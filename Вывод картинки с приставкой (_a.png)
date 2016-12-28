@@ -1,0 +1,6 @@
+
+					<?php $old_path = $jshopConfig->image_category_live_path."/".$curr->category_image ;?>
+					
+					<?php $new_path = str_replace(".png", "_a.png", $old_path ); ?>
+		
+<img align = "absmiddle" src = "<?php print $new_path;?>" alt = "" />
