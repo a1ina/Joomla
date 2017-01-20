@@ -1,0 +1,6 @@
+ <h5 class="name col-md-8"><a href="<?php print SEFLink('index.php?option=com_jshopping&controller=product&task=view',1)?>/<?php print $array_products [$countprod]["category_id"];?>/<?php print $array_products [$countprod]["product_id"];?>"><?php print $array_products [$countprod]["product_name"]; ?></a></h5>
+ 
+ 
+ 
+ 
+ <a href="<?php echo SEFLink('index.php?option=com_jshopping&controller=product&task=view&category_id=' . $product->category_id .'&product_id=' . $product->product_id, 1); ?>"><?php echo $product->name ?></a>
