@@ -1,0 +1,3 @@
+<div class="name">
+                <a href="<?php echo $value['href']?>" name="<?php echo $value["product_id"]?>"><?php echo $value["product_name"]?></a>
+				</div>
