@@ -1,0 +1,68 @@
+ <form method="post" action="php/form_1.php" name="cformtop" id="cformtop" data-id="top" class="form_3">
+	          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-row">
+	            <input name="name" type="text" placeholder="Имя" class="normal small" required>
+	            <input name="city" type="text" placeholder="Город" class="normal small last" required>
+	          </div>
+	          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-row">
+	            <input name="email" type="text" placeholder="Email адресс" class="normal" required>
+	          </div>
+	          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-row">
+	            <input name="phone" type="text" placeholder="Номер телефона" class="normal" required>
+	          </div>
+	          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	            <input type="submit" class="button" value="Записаться">
+	          </div>
+	        </form>
+          
+          /////////////////////*********************PHP**************************//////////////////////
+          <?
+
+//E-mails
+$emails = array('alina.ma1ina@mail.ru');
+
+//Var Width
+
+$title = trim($_POST["title"]);
+
+$name = trim($_POST["name"]);
+$phone = trim($_POST["phone"]);
+$email = trim($_POST["email"]);
+$city = trim($_POST["city"]);
+$mess = $_POST['mess'];
+
+
+if ($name != '' && $phone != '' && $email != '' && $city != '') {
+
+
+
+	$message.="<b>Имя:</b> $name<br />";
+    $message.="<b>Город:</b> $city<br />";
+	$message.="<b>E-mail:</b> $email<br />";
+    $message.="<b>Телефон:</b> $phone<br />";
+
+
+	for ($i = 0; $i < count($emails); $i++) {
+
+		$mail = $emails[$i];
+		$headers="MIME-Version: 1.0\r\n";
+
+		$headers.="Content-type: text/html; charset=utf-8\r\n";
+
+		$headers.="From: courses.double-case.md\r\n";
+
+		mail("$mail", "Заявка на обучение", "$message", "$headers", "-fmd@double-case.md");
+
+	}
+
+	echo "<fieldset>";
+	echo "<div id='success_page'>";
+	echo "<h3 class='succes_message'>Письмо отправленно.</h3>";
+	echo "<p class='center'>Спасибо! Менеджер свяжется с Вами в ближайшее время.</p>";
+	echo "</div>";
+	echo "</fieldset>";
+
+} else {
+
+	echo 1;
+
+}
