@@ -1,0 +1,7 @@
+<?php
+        $db = JFactory::getDBO();
+        $query = "SELECT * FROM  `#__jshopping_products` WHERE `name_ru-RU` LIKE  '".$this->product->name."'";
+        $db->setQuery($query);
+        $row = $db->loadObject();
+        
+        ?>
