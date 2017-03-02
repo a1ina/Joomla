@@ -1,1 +1,5 @@
  <?php echo $this->item->title;?>
+<?php
+$document = &JFactory::getDocument();
+echo $document->title;
+?>
