@@ -1,5 +1,9 @@
- <?php echo $this->item->title;?>
-<?php
-$document = &JFactory::getDocument();
-echo $document->title;
-?>
+1.  <?php echo $this->item->title;?>
+2. Выводит заголов пункта меню 
+               <?php
+               $document = &JFactory::getDocument();
+               echo $document->title;
+               ?>
+3. Выводит заголовок материала (но ламает страницы категорий)
+                $article = new ContentModelArticle;
+                  echo $article->getItem( JFactory::getApplication()->input->getId('id'))->title;
