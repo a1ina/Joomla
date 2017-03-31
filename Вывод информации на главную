@@ -1,0 +1,4 @@
+<?php if (JFactory::getURI()->toString() !== JURI::base()) : ?><?php endif; ?>
+<? php if (JFactory::getURI()->toString() == JURI::base()) : ?>
+<h1>Мы на главной</h1>
+<?php endif; ?>

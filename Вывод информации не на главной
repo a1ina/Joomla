@@ -1,1 +1,0 @@
-<?php if (JFactory::getURI()->toString() !== JURI::base()) : ?><?php endif; ?>
