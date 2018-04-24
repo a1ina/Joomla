@@ -4,22 +4,13 @@ form.php
 
 //E-mails
 
-//$emails = array('htyhu@yandex.ru','mail@plazma-stanok.ru','1@sofona.com');
-
 $emails = array('alina.ma1ina@mail.ru');
 
 //Var Width
 
-
-
 $title = trim($_POST["title"]);
-
-
-
 $name = trim($_POST["name"]);
-
 $phone = trim($_POST["phone"]);
-
 $email = trim($_POST["email"]);
 $usercity = trim($_POST["usercity"]);
 $referrer = $_POST['referrer'];
@@ -29,7 +20,6 @@ $filial = $_POST['filial'];
 
 
 if ($_POST['name'] != '' && $_POST['phone'] != '' && $_POST['email'] != '') {
-
 
 
 	$message.="<b>Имя:</b> $name<br />";
