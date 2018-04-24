@@ -144,7 +144,7 @@ $('form.form_3').submit(function(event) {
     
     <div class="call_back" id="podrobno">
 				
-				<form class="form_3" method="post" onsubmit="yaCounter28022985.reachGoal('info-product'); return true;">
+				<form class="form_3" method="post">
 				<h4>Мы отправим Вам подробное предложение по данному станку и свяжемся для уточнения задач</h4>
 					<input type="hidden" name="title" value="Заказ подробного предложения по станкам | plazma-stanok.ru" />
 					<input type="text" name="name" class="required" placeholder="Имя" />
